@@ -18,4 +18,14 @@
             </li>
         </ul>
     </div>
+
+    @foreach($payrolls as $payroll)
+        @if($current && !$payroll->processed)         
+            <x-payroll-card :payroll="$payroll" />
+        @endif
+
+        @if(!$current && $payroll->processed)
+            <x-payroll-card :payroll="$payroll" />
+        @endif
+    @endforeach
 </x-app-layout>

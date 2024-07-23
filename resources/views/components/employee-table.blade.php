@@ -39,10 +39,10 @@
             <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4" aria-label="Table navigation">
                 <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
                     
-                    <span class="font-semibold text-gray-900 dark:text-white">Total: {{$employees->count()}}</span>
+                    <span class="font-semibold text-gray-900 dark:text-white">Total: {{$total}}</span>
                 </span>
                 <ul class="inline-flex items-stretch -space-x-px">
-                    @for ($i = 1; $i <= ceil($employees->count()/10); $i++)
+                    @for ($i = 1; $i <= ceil($total/10); $i++)
                         @php
                             $offset = ($i - 1) * 10;
                         @endphp

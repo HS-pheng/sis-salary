@@ -13,6 +13,6 @@
                 </a>
             </div>
         </div>
-        <x-employee-table :employees="$employees"/>
+        <x-employee-table :employees="$employees" :total="$total_employees"/>
     </div>
 </x-app-layout>

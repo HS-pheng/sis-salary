@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprovalsController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PayrollsController;
 use App\Http\Controllers\ProfileController;
@@ -19,14 +20,15 @@ Route::delete('/employees/{employee}', [EmployeeController::class, "delete"])->m
 
 Route::get('/payrolls/current', [PayrollsController::class, "current"])->middleware(['auth'])->name('payrolls.current');
 Route::get('/payrolls/history', [PayrollsController::class, "history"])->middleware(['auth'])->name('payrolls.history');
+Route::get('/payrolls/show/{payroll}', [PayrollsController::class, "show"])->middleware(['auth'])->name('payrolls.show');
+Route::get('/payments/{payment}/edit', [PayrollsController::class, "editPayment"])->middleware(['auth'])->name('payrolls.editPayment');
+Route::put('/payments/{payment}', [PayrollsController::class, "updatePayment"])->middleware(['auth'])->name('payrolls.updatePayment');
+Route::get('/download/{payment}', [PayrollsController::class, "downloadSlip"])->middleware(['auth'])->name('payrolls.downloadSlip');
+Route::get('/payrolls/{payroll}/submit', [PayrollsController::class, "submit"])->middleware(['auth'])->name('payrolls.submit');
 
-// Route::get('/payrolls', function () {
-//     return view('/payrolls');
-// })->middleware(['auth'])->name('payrolls');
-
-Route::get('/approvals', function () {
-    return view('approvals');
-})->middleware(['auth'])->name('approvals');
+Route::get('/approvals', [ApprovalsController::class, "index"])->middleware(['auth'])->name('approvals');
+Route::get('/approvals/{approval}/reject', [ApprovalsController::class, "reject"])->middleware(['auth'])->name('approvals.reject');
+Route::get('/approvals/{approval}/approve', [ApprovalsController::class, "approve"])->middleware(['auth'])->name('approvals.approve');
 
 Route::get('/reports', function () {
     return view('reports');

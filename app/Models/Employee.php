@@ -24,4 +24,8 @@ class Employee extends Model
     public function salary() {
         return $this->hasOne(Salary::class, "id", "salary_id");
     }
+
+    public function grossSalary() {
+        return $this->salary->base_salary + $this->salary->housing_allowance + $this->salary->transport_allowance - $this->salary->tax_deduction - $this->salary->health_insurance_deduction;
+    }
 }

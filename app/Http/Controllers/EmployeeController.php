@@ -22,7 +22,8 @@ class EmployeeController extends Controller
             ->get();
 
         return view("employees/employees", [
-            "employees" => $employees
+            "employees" => $employees,
+            "total_employees" => Employee::all()->count(),
         ]);
     }
 
@@ -117,7 +118,8 @@ class EmployeeController extends Controller
         $employees = Employee::skip($offset)->take(10)->get();
 
         return view("employees/employees", [
-            "employees" => $employees
+            "employees" => $employees,
+            "total_employees" => Employee::all()->count(),
         ]);
     }
 }
