@@ -43,7 +43,7 @@
                 <div class="flex gap-x-4">
                     <div class="fixed w-64 h-[calc(88vh)] bg-white rounded-lg shadow-md top-[calc(5rem+10px)]">
                         <div class="p-4">
-                            <h3 class="font-bold text-[#2c3b90]">Home</h3>
+                            <a href="/" class="font-bold text-[#2c3b90]">Home</a>
                         </div>
                         <nav class="flex flex-col h-96 gap-2">
                             <a href="/employees" class="font-bold text-slate-700 block w-full py-2.5 px-4 rounded transition duration-200 hover:bg-blue-700 hover:text-white"><svg class="w-6 inline mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#2c3b90" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>Employees</a>

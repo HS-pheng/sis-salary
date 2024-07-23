@@ -21,7 +21,7 @@ class PayrollsController extends Controller
     }
 
     public function history() {
-        $payrolls = Payroll::all();
+        $payrolls = Payroll::orderBy('updated_at', 'desc')->get();
 
         return view('/payrolls/payrolls', [
             "current" => false,
@@ -50,6 +50,8 @@ class PayrollsController extends Controller
             "bonuses" => $body["bonuses"],
             "deductions" => $body["deductions"],
         ]);
+
+        return $this->current();
     }
 
     public function downloadSlip(Payment $payment, Request $request) {

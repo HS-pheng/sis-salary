@@ -1,0 +1,40 @@
+<h1>Payroll date: $payroll->payment_date</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Gross Pay</th>
+            <th>Deductions</th>
+            <th>Bonuses</th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <th>$payment->employee->full_name</th>
+            <td>$payment->employee->grossSalary()</td>
+            <td>$payment->deductions</td>
+            <td>$payment->bonuses</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>Salary adjustment report</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Adjusted amount</th>
+            <th>Adjusted at</th>
+        </tr>
+    </thead>
+    <tbody> 
+        <tr>
+            <th>$payment->employee->full_name</th>
+            <td>$payment->employee->grossSalary()</td>
+            <td>$payment->deductions</td>
+        </tr>
+    </tbody>
+</table>

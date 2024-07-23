@@ -2,7 +2,11 @@
     <div>
         <div class="h-20 flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 px-12 py-4">
             <div class="w-full md:w-1/2">
-                <h3 class="font-bold text-xl p-0">Regular payroll (Draft)</h3>
+                @if(!$processed)
+                <h3 class="font-bold text-xl p-0">Regular payroll <span class="text-red-700 font-bold text-xl p-0">(Draft)</span></h3>
+                @else
+                <h3 class="font-bold text-xl p-0">Regular payroll <span class="text-blue-700 font-bold text-xl p-0">(Processed)</span></h3>
+                @endif
             </div>
             <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 @if(!$processed)

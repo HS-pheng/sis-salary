@@ -23,8 +23,8 @@ class PayrollSeeder extends Seeder
         foreach($employees as $employee) {
             $paymentProcessed->payments()->create([
                 "employee_id" => $employee->id,
-                "deductions" => rand(0,100),
-                "bonuses" => rand(0,100),
+                "deductions" => 0,
+                "bonuses" => 0,
             ]);
         }
 
@@ -37,8 +37,8 @@ class PayrollSeeder extends Seeder
         foreach($employees as $employee) {
             $paymentUnprocessed->payments()->create([
                 "employee_id" => $employee->id,
-                "deductions" => rand(0,100),
-                "bonuses" => rand(0,100),
+                "deductions" => 0,
+                "bonuses" => 0,
             ]);
         }
     }

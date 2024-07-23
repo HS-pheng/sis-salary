@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ApprovalsController extends Controller
 {
     public function index() {
-        $approvals = Approval::all();
+        $approvals = Approval::where('approved', '=', '0')->get();
 
         return view("approvals", [
             "approvals" => $approvals
@@ -28,7 +28,9 @@ class ApprovalsController extends Controller
             "base_salary" => $approval->employee->salary->base_salary + $approval->amount,
         ]);
 
-        $approval->delete();
+        $approval->update([
+            "approved" => true,
+        ]);
 
         return $this->index();
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ApprovalsController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PayrollsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,9 +31,9 @@ Route::get('/approvals', [ApprovalsController::class, "index"])->middleware(['au
 Route::get('/approvals/{approval}/reject', [ApprovalsController::class, "reject"])->middleware(['auth'])->name('approvals.reject');
 Route::get('/approvals/{approval}/approve', [ApprovalsController::class, "approve"])->middleware(['auth'])->name('approvals.approve');
 
-Route::get('/reports', function () {
-    return view('reports');
-})->middleware(['auth'])->name('reports');
+Route::get('/reports', [ReportsController::class, 'index'])->middleware(['auth'])->name('reports');
+Route::get('/reports/payrolls/{payroll}', [ReportsController::class, 'payrollReport'])->middleware(['auth'])->name('reports.payrollReport');
+Route::get('/reports/salary-adjustment', [ReportsController::class, 'salaryAdjustment'])->middleware(['auth'])->name('reports.payrollReport');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

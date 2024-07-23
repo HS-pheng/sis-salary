@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId("employee_id")->constrained("employees")->cascadeOnDelete();
             $table->integer("amount");
+            $table->boolean("approved")->default(false);
             $table->timestamps();
         });
     }
